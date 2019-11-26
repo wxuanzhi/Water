@@ -15,12 +15,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView edmonth;
-    private TextView ednext;
+    boolean isNext = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         edmonth = findViewById(R.id.month);
-        ednext = findViewById(R.id.next);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,16 +38,26 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+            });
                 Button button = findViewById(R.id.button);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View v){
                         enter();
-
-            }
+                }
         });
+
+            Switch sw = findViewById(R.id.sw);
+            sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    isNext = isChecked;
+                    TextView text = findViewById(R.id.type);
+                    text.setText(isNext?getString(R.string.every_other_month):getString(R.string.monthly));
+                }
+            });
     }
+
 
 
     public void enter () {
@@ -70,10 +81,13 @@ public class MainActivity extends AppCompatActivity {
             //    .setPositiveButton("OK",null)
             //   .show();
             Intent intent = new Intent(this, ResultActivity.class);
-            intent.putExtra("FEE", money);
+            intent.putExtra(getString(R.string.extra_money), money);
             startActivity(intent);
 
-        } else {
+        }
+
+
+        /*else {
             String nextString = ednext.getText().toString();
             if (!TextUtils.isEmpty(nextString)) {
                 float degree = Float.parseFloat(nextString);
@@ -96,14 +110,14 @@ public class MainActivity extends AppCompatActivity {
                 //  .setPositiveButton("OK",null)
                 //.show();
             }
-        }
+        }*/
     }
 
 
 
     public void reset(View view){
         edmonth.setText("");
-        ednext.setText("");
+        //ednext.setText("");
     }
 
     @Override

@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/wxuanzhi/AndroidStudioProjects/Water/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh/values-zh.xml",
+            "map": [
+                {
+                    "source": "/Users/wxuanzhi/AndroidStudioProjects/Water/app/src/main/res/values-zh/strings.xml",
+                    "from": {
+                        "startLines": "3,2,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "96,55,143,194,237,278",
+                        "endColumns": "46,40,50,42,40,40",
+                        "endOffsets": "138,91,189,232,273,314"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,102,143,194,237,278",
+                        "endColumns": "46,40,50,42,40,40",
+                        "endOffsets": "97,138,189,232,273,314"
+                    }
+                }
+            ]
+        }
+    ]
+}

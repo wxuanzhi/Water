@@ -59,6 +59,7 @@
             android:id="@+id/money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:text="fee"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:visibility="visible"
